@@ -56,6 +56,7 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ### Development Tools
 
+- **Docker & Docker Compose** - containerization and orchestration
 - **Laravel Breeze** - authentication scaffolding## Laravel Sponsors
 
 - **Faker** - test data generation
@@ -147,12 +148,12 @@ attachments
 
 ### Prerequisites
 
-- PHP 8.3 or higher
-- Composer
-- PostgreSQL 16 or higher
-- Node.js 18+ and npm
+- **Docker** and **Docker Compose** installed on your machine
+- Git
 
-### Installation
+> **Note:** This project uses Docker for containerization, so you don't need to install PHP, Composer, PostgreSQL, or Node.js locally!
+
+### Installation with Docker
 
 1. **clone the repository**
 ```bash
@@ -160,54 +161,87 @@ git clone https://github.com/refleeexzz/laravel-task-manager.git
 cd laravel-task-manager
 ```
 
-2. **install PHP dependencies**
-```bash
-composer install
-```
-
-3. **install Node.js dependencies**
-```bash
-npm install
-```
-
-4. **set up environment file**
+2. **set up environment file**
 ```bash
 cp .env.example .env
 ```
 
-5. **configure database in .env**
+3. **configure database in .env for Docker**
 ```env
 DB_CONNECTION=pgsql
-DB_HOST=127.0.0.1
+DB_HOST=postgres
 DB_PORT=5432
 DB_DATABASE=laravel_tasks
 DB_USERNAME=postgres
-DB_PASSWORD=your_password
+DB_PASSWORD=postgres
+```
+
+4. **build and start Docker containers**
+```bash
+docker-compose up -d
+```
+
+5. **install PHP dependencies inside the container**
+```bash
+docker-compose exec app composer install
 ```
 
 6. **generate application key**
 ```bash
-php artisan key:generate
+docker-compose exec app php artisan key:generate
 ```
 
 7. **run migrations and seeders**
 ```bash
-php artisan migrate --seed
+docker-compose exec app php artisan migrate --seed
 ```
 
-8. **build assets**
+8. **install Node.js dependencies and build assets**
 ```bash
-npm run build
-# or for development
-npm run dev
-```
-
-9. **start the development server**
-```bash
-php artisan serve
+docker-compose exec app npm install
+docker-compose exec app npm run build
 ```
 
 visit `http://localhost:8000` in your browser.
+
+### Docker Commands
+
+**Start containers:**
+```bash
+docker-compose up -d
+```
+
+**Stop containers:**
+```bash
+docker-compose down
+```
+
+**View logs:**
+```bash
+docker-compose logs -f
+```
+
+**Access container shell:**
+```bash
+docker-compose exec app bash
+```
+
+**Run artisan commands:**
+```bash
+docker-compose exec app php artisan [command]
+```
+
+### Alternative: Local Installation (without Docker)
+
+If you prefer to run without Docker:
+
+**Prerequisites:**
+- PHP 8.3 or higher
+- Composer
+- PostgreSQL 16 or higher
+- Node.js 18+ and npm
+
+Follow the traditional installation steps and configure `.env` with your local database credentials.
 
 ### Default Test User
 
@@ -241,7 +275,13 @@ resources/
 
 ## 🧪 Testing
 
-run the test suite:
+run the test suite with Docker:
+
+```bash
+docker-compose exec app php artisan test
+```
+
+or without Docker:
 
 ```bash
 php artisan test
@@ -321,18 +361,24 @@ MAIL_MAILER=smtp
 
 ## 🚢 Deployment
 
+### with Docker
+
+the project is already configured to run with Docker, making deployment easier on any platform that supports Docker containers.
+
 ### recommended platforms
-- **Railway** - easy Laravel + PostgreSQL deployment
-- **Render** - free tier available
-- **Fly.io** - good performance on free tier
+- **Railway** - easy Laravel + PostgreSQL deployment with Docker support
+- **Render** - free tier available, supports Docker
+- **Fly.io** - good performance on free tier, Docker-native
+- **DigitalOcean App Platform** - managed Docker deployments
 
 ### deployment checklist
-- [ ] set `APP_ENV=production`
-- [ ] set `APP_DEBUG=false`
-- [ ] configure production database
+- [ ] set `APP_ENV=production` in `.env`
+- [ ] set `APP_DEBUG=false` in `.env`
+- [ ] configure production database credentials
 - [ ] set up mail service for notifications
-- [ ] run `php artisan optimize`
+- [ ] run `docker-compose exec app php artisan optimize`
 - [ ] configure queue worker if using jobs
+- [ ] ensure Docker volumes are properly configured for persistence
 
 ## 🤝 Contributing
 
