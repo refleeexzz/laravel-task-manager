@@ -1,410 +1,153 @@
-# 📋 Laravel Task Manager<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📋 Laravel Task Manager
 
+[![Tests](https://github.com/refleeexzz/laravel-task-manager/actions/workflows/tests.yml/badge.svg)](https://github.com/refleeexzz/laravel-task-manager/actions/workflows/tests.yml)
 
+A full-featured task management system built with Laravel 12, PostgreSQL, and modern frontend technologies.
 
-a full-featured task management system built with Laravel 12, PostgreSQL, and modern front-end technologies. this project demonstrates proficiency in Laravel ecosystem, database design, and clean code practices.<p align="center">
+## ✨ Features
 
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+- 🔐 **Authentication System** - User registration, login, and password recovery
+- 📁 **Project Management** - Organize tasks into customizable projects
+- ✅ **Task Management** - Create, edit, delete, and track tasks with priorities
+- 👥 **Role-Based Access Control** - Admin, QA, Editor, and Reader roles
+- 🔍 **QA Workflow** - Quality assurance review process for tasks
+- 🏷️ **Categories** - Tag tasks with multiple categories
+- 💬 **Comments** - Team collaboration on tasks
+- 📎 **File Attachments** - Attach files to tasks
+- 🌓 **Dark Mode** - System-based theme with manual toggle
+- 🎯 **Modern UI** - Built with Tailwind CSS v4
 
-## ✨ Features<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+## 🛠️ Tech Stack
 
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+- **Backend:** Laravel 12, PHP 8.3
+- **Database:** PostgreSQL 16
+- **Frontend:** Tailwind CSS v4, Vite, Alpine.js
+- **Dev Tools:** Docker, Docker Compose, Laravel Pint
 
-- 🔐 **authentication system** - complete user registration, login, and password recovery<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+## 🚀 Quick Start
 
-- 📁 **project management** - organize tasks into customizable projects</p>
+### With Docker (Recommended)
 
-- ✅ **task management** - create, edit, delete, and track tasks with priorities and deadlines
-
-- 🏷️ **categories** - tag tasks with multiple categories for better organization## About Laravel
-
-- 💬 **comments** - collaborate on tasks with team members through comments
-
-- 📎 **file attachments** - attach files to tasks for documentationLaravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- 🎨 **customizable** - projects and categories with custom colors
-
-- 📊 **status tracking** - monitor task progress (todo, in progress, completed)- [Simple, fast routing engine](https://laravel.com/docs/routing).
-
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-
-## 🛠️ Tech Stack- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-
-### Backend- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-
-- **Laravel 12** - PHP framework- [Robust background job processing](https://laravel.com/docs/queues).
-
-- **PostgreSQL** - relational database- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-- **Eloquent ORM** - database relationships and queries
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-### Frontend
-
-- **Blade Templates** - server-side templating## Learning Laravel
-
-- **Tailwind CSS** - utility-first styling
-
-- **Alpine.js** - lightweight JavaScript frameworkLaravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
-
-- **Vite** - modern build tool
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-### Development Tools
-
-- **Docker & Docker Compose** - containerization and orchestration
-- **Laravel Breeze** - authentication scaffolding## Laravel Sponsors
-
-- **Faker** - test data generation
-
-- **PHPUnit** - testing frameworkWe would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-
-
-## 📊 Database Schema### Premium Partners
-
-
-
-```- **[Vehikl](https://vehikl.com)**
-
-users- **[Tighten Co.](https://tighten.co)**
-
-├── id- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-
-├── name- **[64 Robots](https://64robots.com)**
-
-├── email- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-
-└── password- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-
-- **[Redberry](https://redberry.international/laravel-development)**
-
-projects- **[Active Logic](https://activelogic.com)**
-
-├── id
-
-├── user_id (FK → users)## Contributing
-
-├── name
-
-├── descriptionThank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-├── color
-
-└── status## Code of Conduct
-
-
-
-tasksIn order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-├── id
-
-├── project_id (FK → projects)## Security Vulnerabilities
-
-├── user_id (FK → users)
-
-├── titleIf you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-├── description
-
-├── priority (low, medium, high)## License
-
-├── status (todo, in_progress, completed)
-
-├── due_dateThe Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-└── completed_at
-
-categories
-├── id
-├── name
-└── color
-
-category_task (pivot)
-├── category_id (FK → categories)
-└── task_id (FK → tasks)
-
-comments
-├── id
-├── task_id (FK → tasks)
-├── user_id (FK → users)
-└── content
-
-attachments
-├── id
-├── task_id (FK → tasks)
-├── user_id (FK → users)
-├── filename
-├── path
-├── mime_type
-└── size
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Docker** and **Docker Compose** installed on your machine
-- Git
-
-> **Note:** This project uses Docker for containerization, so you don't need to install PHP, Composer, PostgreSQL, or Node.js locally!
-
-### Installation with Docker
-
-1. **clone the repository**
 ```bash
+# clone the repository
 git clone https://github.com/refleeexzz/laravel-task-manager.git
 cd laravel-task-manager
-```
 
-2. **set up environment file**
-```bash
+# copy environment file
 cp .env.example .env
+
+# start docker containers
+docker compose up -d
+
+# install dependencies
+docker compose exec app composer install
+docker compose exec app npm install
+
+# generate application key
+docker compose exec app php artisan key:generate
+
+# run migrations and seeders
+docker compose exec app php artisan migrate --seed
+
+# build frontend assets (vite runs automatically in docker)
+# access the app at http://localhost:8000
 ```
 
-3. **configure database in .env for Docker**
-```env
-DB_CONNECTION=pgsql
-DB_HOST=postgres
-DB_PORT=5432
-DB_DATABASE=laravel_tasks
-DB_USERNAME=postgres
-DB_PASSWORD=postgres
-```
+### Without Docker
 
-4. **build and start Docker containers**
 ```bash
-docker-compose up -d
-```
+# install dependencies
+composer install
+npm install
 
-5. **install PHP dependencies inside the container**
-```bash
-docker-compose exec app composer install
-```
+# setup environment
+cp .env.example .env
+php artisan key:generate
 
-6. **generate application key**
-```bash
-docker-compose exec app php artisan key:generate
-```
+# configure database in .env
+# DB_CONNECTION=pgsql
+# DB_HOST=127.0.0.1
+# DB_PORT=5432
+# DB_DATABASE=laravel
+# DB_USERNAME=your_user
+# DB_PASSWORD=your_password
 
-7. **run migrations and seeders**
-```bash
-docker-compose exec app php artisan migrate --seed
-```
+# run migrations
+php artisan migrate --seed
 
-8. **install Node.js dependencies and build assets**
-```bash
-docker-compose exec app npm install
-docker-compose exec app npm run build
-```
-
-visit `http://localhost:8000` in your browser.
-
-### Docker Commands
-
-**Start containers:**
-```bash
-docker-compose up -d
-```
-
-**Stop containers:**
-```bash
-docker-compose down
-```
-
-**View logs:**
-```bash
-docker-compose logs -f
-```
-
-**Access container shell:**
-```bash
-docker-compose exec app bash
-```
-
-**Run artisan commands:**
-```bash
-docker-compose exec app php artisan [command]
-```
-
-### Alternative: Local Installation (without Docker)
-
-If you prefer to run without Docker:
-
-**Prerequisites:**
-- PHP 8.3 or higher
-- Composer
-- PostgreSQL 16 or higher
-- Node.js 18+ and npm
-
-Follow the traditional installation steps and configure `.env` with your local database credentials.
-
-### Default Test User
-
-- **Email:** john@example.com
-- **Password:** password
-
-## 📁 Project Structure
-
-```
-app/
-├── Models/              # eloquent models with relationships
-│   ├── User.php
-│   ├── Project.php
-│   ├── Task.php
-│   ├── Category.php
-│   ├── Comment.php
-│   └── Attachment.php
-├── Http/
-│   └── Controllers/     # request handlers
-└── ...
-
-database/
-├── migrations/          # database schema definitions
-├── seeders/            # sample data generators
-└── factories/          # model factories for testing
-
-resources/
-├── views/              # blade templates
-└── js/                 # frontend JavaScript
+# start dev servers
+php artisan serve
+npm run dev
 ```
 
 ## 🧪 Testing
 
-run the test suite with Docker:
-
 ```bash
-docker-compose exec app php artisan test
-```
-
-or without Docker:
-
-```bash
+# run all tests
 php artisan test
+
+# run specific test suite
+php artisan test --testsuite=Feature
+
+# run with coverage
+php artisan test --coverage
 ```
 
-## 🌱 Seeded Data
+## 👤 Default Users
 
-the database seeder creates:
-- **6 users** (including test user)
-- **10 projects** with different statuses
-- **50 tasks** with various priorities and deadlines
-- **8 predefined categories** (Work, Personal, Urgent, etc.)
-- **100 comments** across tasks
+After seeding, you can login with:
 
-## 🔑 Key Features Demonstrated
+| Role   | Email              | Password |
+|--------|-------------------|----------|
+| Admin  | admin@example.com | password |
+| QA     | qa@example.com    | password |
+| Editor | editor@example.com| password |
+| Reader | reader@example.com| password |
 
-### eloquent relationships
-- **one-to-many**: User → Projects, User → Tasks
-- **many-to-many**: Tasks ↔ Categories (with pivot table)
-- **polymorphic relationships** potential for future expansion
+## 📝 User Roles & Permissions
 
-### database design
-- proper foreign key constraints
-- cascade deletes for data integrity
-- indexed columns for performance
-- normalized structure
+- **Admin:** Full access to all features including user management
+- **QA:** Can review tasks, approve/reject QA requests
+- **Editor:** Can create/edit projects and tasks
+- **Reader:** Read-only access to projects and tasks
 
-### best practices
-- PSR-12 coding standards
-- repository pattern ready
-- service layer architecture potential
-- comprehensive PHPDoc comments
-- mass assignment protection
-- type hinting throughout
+## 🔒 Security Features
 
-## 🎨 Customization
+- CSRF protection on all forms
+- SQL injection prevention via Eloquent ORM
+- XSS protection with Blade escaping
+- Mass assignment protection
+- Input sanitization middleware
+- Role-based authorization policies
 
-### adding new categories
-```php
-Category::create([
-    'name' => 'Marketing',
-    'color' => '#FF6B6B'
-]);
+## 📦 Project Structure
+
 ```
+app/
+├── Http/Controllers/     # application controllers
+├── Models/              # eloquent models
+├── Policies/            # authorization policies
+└── Providers/           # service providers
 
-### creating tasks programmatically
-```php
-Task::create([
-    'user_id' => auth()->id(),
-    'project_id' => 1,
-    'title' => 'New Feature',
-    'description' => 'Implement user dashboard',
-    'priority' => 'high',
-    'status' => 'todo',
-    'due_date' => now()->addDays(7)
-]);
+resources/
+├── views/              # blade templates
+├── css/                # stylesheets
+└── js/                 # javascript
+
+database/
+├── migrations/         # database migrations
+├── factories/          # model factories
+└── seeders/           # database seeders
+
+tests/
+├── Feature/           # feature tests
+└── Unit/              # unit tests
 ```
-
-## 📝 Environment Variables
-
-key `.env` configurations:
-
-```env
-APP_NAME="Laravel Task Manager"
-APP_ENV=production
-APP_DEBUG=false
-APP_URL=https://your-domain.com
-
-DB_CONNECTION=pgsql
-DB_DATABASE=your_database
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-
-MAIL_MAILER=smtp
-# configure mail settings for password reset
-```
-
-## 🚢 Deployment
-
-### with Docker
-
-the project is already configured to run with Docker, making deployment easier on any platform that supports Docker containers.
-
-### recommended platforms
-- **Railway** - easy Laravel + PostgreSQL deployment with Docker support
-- **Render** - free tier available, supports Docker
-- **Fly.io** - good performance on free tier, Docker-native
-- **DigitalOcean App Platform** - managed Docker deployments
-
-### deployment checklist
-- [ ] set `APP_ENV=production` in `.env`
-- [ ] set `APP_DEBUG=false` in `.env`
-- [ ] configure production database credentials
-- [ ] set up mail service for notifications
-- [ ] run `docker-compose exec app php artisan optimize`
-- [ ] configure queue worker if using jobs
-- [ ] ensure Docker volumes are properly configured for persistence
 
 ## 🤝 Contributing
 
-contributions are welcome! please feel free to submit a pull request.
-
-1. fork the project
-2. create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. commit your changes (`git commit -m 'add some amazing feature'`)
-4. push to the branch (`git push origin feature/AmazingFeature`)
-5. open a pull request
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-this project is open-sourced software licensed under the MIT license.
-
-## 👤 Author
-
-**refleeexzz**
-- GitHub: [@refleeexzz](https://github.com/refleeexzz)
-
-## 🙏 Acknowledgments
-
-- Laravel community for excellent documentation
-- Tailwind CSS for the utility-first CSS framework
-- Alpine.js for reactive components
-
----
-
-built with ❤️ using Laravel
+This project is open-sourced software licensed under the MIT license.
