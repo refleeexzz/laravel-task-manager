@@ -46,7 +46,7 @@ class TaskTest extends TestCase
         $project = Project::factory()->create();
         $task = Task::factory()->create([
             'project_id' => $project->id,
-            'assigned_to' => $editor->id,
+            'user_id' => $editor->id,
         ]);
 
         $response = $this->actingAs($editor)->put("/tasks/{$task->id}", [
@@ -70,7 +70,7 @@ class TaskTest extends TestCase
         $project = Project::factory()->create();
         $task = Task::factory()->create([
             'project_id' => $project->id,
-            'status' => 'in_qa',
+            'status' => 'qa_review',
         ]);
 
         $response = $this->actingAs($qa)->put("/tasks/{$task->id}", [
@@ -111,7 +111,7 @@ class TaskTest extends TestCase
         $project = Project::factory()->create();
         $task = Task::factory()->create([
             'project_id' => $project->id,
-            'assigned_to' => $editor->id,
+            'user_id' => $editor->id,
             'status' => 'in_progress',
         ]);
 
@@ -119,14 +119,14 @@ class TaskTest extends TestCase
             'title' => $task->title,
             'description' => $task->description,
             'project_id' => $project->id,
-            'status' => 'in_qa',
+            'status' => 'qa_review',
             'priority' => $task->priority,
         ]);
 
         $response->assertRedirect("/tasks/{$task->id}");
         $this->assertDatabaseHas('tasks', [
             'id' => $task->id,
-            'status' => 'in_qa',
+            'status' => 'qa_review',
         ]);
     }
 

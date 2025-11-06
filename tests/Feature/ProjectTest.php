@@ -28,6 +28,7 @@ class ProjectTest extends TestCase
             'name' => 'Test Project',
             'description' => 'Test Description',
             'status' => 'active',
+            'color' => '#3b82f6',
         ]);
 
         $response->assertRedirect('/projects');
@@ -44,6 +45,7 @@ class ProjectTest extends TestCase
             'name' => 'Editor Project',
             'description' => 'Editor Description',
             'status' => 'active',
+            'color' => '#10b981',
         ]);
 
         $response->assertRedirect('/projects');
@@ -60,6 +62,7 @@ class ProjectTest extends TestCase
             'name' => 'Reader Project',
             'description' => 'Reader Description',
             'status' => 'active',
+            'color' => '#ef4444',
         ]);
 
         $response->assertStatus(403);
@@ -74,6 +77,7 @@ class ProjectTest extends TestCase
             'name' => 'Updated Project',
             'description' => 'Updated Description',
             'status' => 'completed',
+            'color' => $project->color,
         ]);
 
         $response->assertRedirect("/projects/{$project->id}");
