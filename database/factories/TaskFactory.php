@@ -16,7 +16,7 @@ class TaskFactory extends Factory
      */
     public function definition(): array
     {
-        $status = fake()->randomElement(['todo', 'in_progress', 'completed']);
+        $status = fake()->randomElement(['pending', 'in_progress', 'completed', 'cancelled']);
         
         return [
             'project_id' => fake()->boolean(70) ? \App\Models\Project::factory() : null,

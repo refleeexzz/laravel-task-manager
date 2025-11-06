@@ -16,15 +16,14 @@ class Comment extends Model
 {
     use HasFactory;
 
-    /**
-     * the attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'task_id',
-        'user_id',
         'content',
+    ];
+
+    // prevent changing comment author
+    protected $guarded = [
+        'user_id',
     ];
 
     /**

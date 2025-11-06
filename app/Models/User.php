@@ -13,15 +13,15 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
     protected $fillable = [
         'name',
         'email',
         'password',
+    ];
+
+    // prevent users from changing their own role
+    protected $guarded = [
+        'role',
     ];
 
     /**
@@ -85,5 +85,30 @@ class User extends Authenticatable
     public function attachments(): HasMany
     {
         return $this->hasMany(Attachment::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isQA(): bool
+    {
+        return $this->role === 'qa';
+    }
+
+    public function isManager(): bool
+    {
+        return in_array($this->role, ['admin', 'manager']);
+    }
+
+    public function isReader(): bool
+    {
+        return $this->role === 'reader';
+    }
+
+    public function canManageUsers(): bool
+    {
+        return $this->role === 'admin';
     }
 }

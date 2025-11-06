@@ -17,18 +17,17 @@ class Attachment extends Model
 {
     use HasFactory;
 
-    /**
-     * the attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'task_id',
-        'user_id',
         'filename',
         'path',
         'mime_type',
         'size',
+    ];
+
+    // prevent changing who uploaded the file
+    protected $guarded = [
+        'user_id',
     ];
 
     /**

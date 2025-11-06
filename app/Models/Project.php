@@ -18,17 +18,16 @@ class Project extends Model
 {
     use HasFactory;
 
-    /**
-     * the attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
-        'user_id',
         'name',
         'description',
         'color',
         'status',
+    ];
+
+    // prevent changing project owner
+    protected $guarded = [
+        'user_id',
     ];
 
     /**
