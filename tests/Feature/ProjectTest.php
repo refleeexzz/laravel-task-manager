@@ -31,7 +31,8 @@ class ProjectTest extends TestCase
             'color' => '#3b82f6',
         ]);
 
-        $response->assertRedirect('/projects');
+        $project = Project::where('name', 'Test Project')->first();
+        $response->assertRedirect("/projects/{$project->id}");
         $this->assertDatabaseHas('projects', [
             'name' => 'Test Project',
         ]);
@@ -48,7 +49,8 @@ class ProjectTest extends TestCase
             'color' => '#10b981',
         ]);
 
-        $response->assertRedirect('/projects');
+        $project = Project::where('name', 'Editor Project')->first();
+        $response->assertRedirect("/projects/{$project->id}");
         $this->assertDatabaseHas('projects', [
             'name' => 'Editor Project',
         ]);

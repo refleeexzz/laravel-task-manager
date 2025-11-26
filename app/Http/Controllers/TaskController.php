@@ -31,6 +31,8 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('create', Task::class);
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -90,6 +92,7 @@ class TaskController extends Controller
             'project_id' => 'required|exists:projects,id',
             'priority' => 'required|in:low,medium,high',
             'status' => 'required|in:pending,in_progress,completed,cancelled,qa_review',
+            'qa_status' => 'nullable|string',
             'due_date' => 'nullable|date',
             'categories' => 'nullable|array',
             'categories.*' => 'exists:categories,id',
@@ -101,6 +104,7 @@ class TaskController extends Controller
             'project_id' => $validated['project_id'],
             'priority' => $validated['priority'],
             'status' => $validated['status'],
+            'qa_status' => $validated['qa_status'] ?? null,
             'due_date' => $validated['due_date'] ?? null,
         ]);
 

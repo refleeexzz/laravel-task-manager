@@ -34,7 +34,8 @@ class TaskTest extends TestCase
             'priority' => 'medium',
         ]);
 
-        $response->assertRedirect('/tasks');
+        $task = Task::where('title', 'Test Task')->first();
+        $response->assertRedirect("/tasks/{$task->id}");
         $this->assertDatabaseHas('tasks', [
             'title' => 'Test Task',
         ]);

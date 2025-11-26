@@ -19,7 +19,7 @@ class TaskPolicy
 
     public function create(User $user): bool
     {
-        return true;
+        return $user->isAdmin() || $user->role === 'editor';
     }
 
     public function update(User $user, Task $task): bool

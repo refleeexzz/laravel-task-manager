@@ -25,6 +25,7 @@ class Task extends Model
         'description',
         'priority',
         'status',
+        'qa_status',
         'due_date',
         'completed_at',
     ];

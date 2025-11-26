@@ -19,17 +19,17 @@ class ProjectPolicy
 
     public function create(User $user): bool
     {
-        return true;
+        return $user->isAdmin() || $user->role === 'editor';
     }
 
     public function update(User $user, Project $project): bool
     {
-        return $user->id === $project->user_id;
+        return $user->isAdmin() || $user->id === $project->user_id;
     }
 
     public function delete(User $user, Project $project): bool
     {
-        return $user->id === $project->user_id;
+        return $user->isAdmin() || $user->id === $project->user_id;
     }
 
     public function restore(User $user, Project $project): bool
